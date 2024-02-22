@@ -1,0 +1,4 @@
+../Src/USART/USART_program.c:17:6:USART_voidInit	17
+../Src/USART/USART_program.c:125:6:USART_sendWord	8
+../Src/USART/USART_program.c:148:6:USART_receiveWord	8
+../Src/USART/USART_program.c:169:6:USART_sendString	2

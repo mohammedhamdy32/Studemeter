@@ -1,0 +1,3 @@
+../Src/RCC/RCC_program.c:24:6:RCC_voidInitSysCls	1
+../Src/RCC/RCC_program.c:94:6:RCC_voidEnablePerpheralClk	7
+../Src/RCC/RCC_program.c:128:6:RCC_voidDisablePerpheralClk	7

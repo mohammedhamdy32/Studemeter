@@ -1,0 +1,8 @@
+../Src/SYSTICK/SYSTICK_program.c:18:6:SYSTICK_voidInit	4	static
+../Src/SYSTICK/SYSTICK_program.c:30:6:SYSTICK_voidDisable	4	static
+../Src/SYSTICK/SYSTICK_program.c:38:6:SYSTICK_voidBussyWaitDelay	16	static
+../Src/SYSTICK/SYSTICK_program.c:49:6:SYSTICK_voidSetIntervalSingle	16	static
+../Src/SYSTICK/SYSTICK_program.c:58:6:SYSTICK_voidSetIntervalNumber	24	static
+../Src/SYSTICK/SYSTICK_program.c:68:6:STK_voidSetIntervalPeriodic	16	static
+../Src/SYSTICK/SYSTICK_program.c:77:5:SYSTICK_voidGetRemainingTicks	4	static
+../Src/SYSTICK/SYSTICK_program.c:84:6:SysTick_Handler	8	static

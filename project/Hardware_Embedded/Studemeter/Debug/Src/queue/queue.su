@@ -1,0 +1,5 @@
+../Src/queue/queue.c:16:6:Queue_init	4	static
+../Src/queue/queue.c:22:6:enqueue	16	static
+../Src/queue/queue.c:34:4:dequeue	24	static
+../Src/queue/queue.c:49:5:queue_size	4	static
+../Src/queue/queue.c:54:4:is_queue_Full	4	static

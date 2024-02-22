@@ -1,0 +1,5 @@
+../Src/ADC/ADC_program.c:28:6:ADC_vSetSequence	24	static
+../Src/ADC/ADC_program.c:51:6:ADC_vInit	16	static
+../Src/ADC/ADC_program.c:68:6:ADC_vStartConversion	4	static
+../Src/ADC/ADC_program.c:87:5:ADC_u16Read	4	static
+../Src/ADC/ADC_program.c:93:5:ADC_u16ReadChannel	16	static

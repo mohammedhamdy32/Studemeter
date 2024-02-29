@@ -1,0 +1,30 @@
+!SESSION 2024-02-26 21:24:22.246 -----------------------------------------------
+eclipse.buildId=Version 1.13.0
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-26 21:25:48.660
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-26 21:25:48.673
+!MESSAGE Log4j2 initialized with config file C:\Users\mohammedhamdy32\Desktop\machine learning\learn\studmeter\project\Hardware_Embedded\Studemeter\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-26 21:25:52.354
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-26 21:27:45.890 -----------------------------------------------
+eclipse.buildId=Version 1.13.0
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-26 21:28:11.729
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-26 21:28:11.730
+!MESSAGE Log4j2 initialized with config file C:\Users\mohammedhamdy32\Desktop\machine learning\learn\studmeter\project\Hardware_Embedded\Studemeter\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-26 21:28:15.887
+!MESSAGE Started RMI Server, listening on port 41337

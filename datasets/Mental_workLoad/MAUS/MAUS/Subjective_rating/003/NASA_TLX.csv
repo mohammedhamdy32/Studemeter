@@ -1,0 +1,9 @@
+Scale Title,Trial 1: 0_back,Trial 2: 2_back,Trial 3: 3_back,Trial 4: 2_back,Trial 5: 3_back,Trial 6: 0_back,Weight
+Mental Demand,10,40,85,20,75,10,1
+Physical Demand,15,25,85,15,80,15,2
+Temporal Demand,15,55,100,25,80,10,4
+Performance,15,40,85,20,90,10,2
+Effort,15,60,85,45,85,10,2
+Frustration,10,45,80,30,100,0,4
+,Adjusted rate(Weight x Raw),,,,,,
+,13.33333333,46,87.66666667,26.66666667,87,8,

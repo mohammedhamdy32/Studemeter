@@ -44,6 +44,7 @@ Addressing these challenges is crucial for:
 <!-- - Explanation of the data collection process and sensor integration -->
 
 ![Product Image](./assets/images/gsr-in-hand-example.png)
+![Product Prototype](./assets/images/hardware-prototype.png)
 
 ## Data Collection and Preprocessing
 <!-- - Details on the collection of GSR sensor data from student participants -->

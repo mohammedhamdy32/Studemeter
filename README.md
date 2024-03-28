@@ -47,8 +47,61 @@ Addressing these challenges is crucial for:
 ![Product Prototype](./assets/images/hardware-prototype.png)
 
 ## Data Collection and Preprocessing
-<!-- - Details on the collection of GSR sensor data from student participants -->
-<!-- - Preprocessing steps performed to clean and prepare the data for model training -->
+The success of the Studemeter project relies heavily on the accuracy 
+and reliability of the data collected and the pre-processing techniques employed. 
+This section provides a comprehensive overview of our data collection methodology 
+and the preprocessing steps undertaken to ensure the quality of the dataset.
+
+### Data Collection:
+1. **Collection of GSR Signal Data:** 
+   - Wearable sensor were deployed to collect signal data from team members.
+   - Data collection sessions were conducted during various activities.
+
+2. **Integration of Previous Studies Data:**
+   - In addition to real-time data collection, we integrated data from previous studies.
+   - This provided a broader range of samples for model training and validation.
+
+### Preprocessing Steps:
+1. **Initial Data Analysis:** 
+   - Upon collection, the raw GSR signal data underwent thorough analysis to identify patterns and anomalies.
+   - It became evident that raw data alone did not provide sufficient insights into emotional states and cognitive load.
+
+2. **Low Pass Filtering for Noise Reduction:** 
+   - To clean the signal and reduce noise, a low pass filter was applied.
+   - The filter was set to a cutoff frequency of around 5 Hz.
+
+3. **Selection of Preprocessing Technique:** 
+   - Extensive research and experimentation led us to prioritize the phasic component of the GSR signal for preprocessing.
+   - Phasic preprocessing isolates and amplifies the rapid fluctuations in skin conductance.
+
+4. **Visualization of Preprocessed Signal Graphs:**
+   - To visualize the effectiveness of our preprocessing technique, graphs of the raw GSR signal data during different activities were captured.
+   - These graphs were then processed to highlight the phasic component, resulting in clear representations of emotional arousal levels.
+
+#### Examples of Raw and Preprocessed Data
+![Data Examples 1](./assets/images/data-examples-1.jpeg)
+![Data Examples 2](./assets/images/data-examples-2.jpeg)
+![Data Examples 3](./assets/images/data-examples-3.jpeg)
+
+
+### Model Approach:
+The Studemeter model employs a Support Vector Machine (SVM) algorithm to analyze the 
+phasic component of the GSR signal, recognized from previous studies as the most reliable 
+indicator of emotional arousal. 
+The SVM model is trained on preprocessed GSR data to accurately 
+classify students' emotional states and cognitive load levels in real-time.
+
+1. **Feature Extraction:** 
+   - Prior to model training, relevant features are extracted from the preprocessed GSR data. 
+   - These features capture key characteristics of the phasic component, such as amplitude and frequency of skin conductance responses.
+
+2. **Training and Validation:** 
+   - The SVM model is trained on a labeled dataset, where each sample is associated with a specific emotional state or cognitive load level.
+   - Cross-validation techniques are employed to ensure the robustness and generalization ability of the model across different datasets.
+
+3. **Real-time Classification:** 
+   - Once trained, the model was capable of classifying new GSR data samples.
+   - Real-time classification enables educators to promptly identify students in need of support and intervention.
 
 ## Machine Learning Model Development
 <!-- - Description of the machine learning model design and development process -->

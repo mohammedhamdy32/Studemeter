@@ -125,3 +125,8 @@ cognitive load detection model -->
 ## References
 <!-- - List of references cited throughout the documentation -->
 <!-- - Academic papers, articles, and other sources used to inform the project -->
+- Analysis of EDA data using Ledalab
+- GALVANIC SKIN RESPONSE MEASUREMENT DATA PROCESSING FOR USER-RELATED INFORMATION EXTRACTION
+- Cognitive Load Monitoring With Wearables—Lessons Learned From a Machine Learning Challenge
+- Cognitive Load Measurement Using Arithmetic and Graphical Tasks and Galvanic Skin Response
+- Realtime Determination of Mood in Classroom Environment

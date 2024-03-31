@@ -1,6 +1,6 @@
 # Studemeter: Emotion and Cognitive Load Detection System
 
-![Project Logo](./assets/images/studemeter-logo.svg)
+![Project Logo](./assets/images/studemeter-logo.svg =800x)
 
 ## Introduction
 
@@ -43,8 +43,8 @@ Addressing these challenges is crucial for:
 <!-- - Description of the machine learning model architecture and algorithms employed -->
 <!-- - Explanation of the data collection process and sensor integration -->
 
-![Product Image](./assets/images/gsr-in-hand-example.png)
-![Product Prototype](./assets/images/hardware-prototype.png)
+![Product Image](./assets/images/gsr-in-hand-example.png =400x)
+![Product Prototype](./assets/images/hardware-prototype.png =400x)
 
 ## Data Collection and Preprocessing
 The success of the Studemeter project relies heavily on the accuracy 
@@ -79,9 +79,9 @@ and the preprocessing steps undertaken to ensure the quality of the dataset.
    - These graphs were then processed to highlight the phasic component, resulting in clear representations of emotional arousal levels.
 
 #### Examples of Raw and Preprocessed Data
-![Data Examples 1](./assets/images/data-examples-1.jpeg)
-![Data Examples 2](./assets/images/data-examples-2.jpeg)
-![Data Examples 3](./assets/images/data-examples-3.jpeg)
+![Data Examples 1](./assets/images/data-examples-1.jpeg =800x)
+![Data Examples 2](./assets/images/data-examples-2.jpeg =800x)
+![Data Examples 3](./assets/images/data-examples-3.jpeg =400x)
 
 
 ### Model Approach:

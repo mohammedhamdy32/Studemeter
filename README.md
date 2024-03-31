@@ -33,7 +33,7 @@ Addressing these challenges is crucial for:
   learning environment.
 - Integrating these strategies improves student motivation and engagement.
 
-## Literature Review
+<!-- ## Literature Review -->
 <!-- - Summary of existing research and literature related to emotion detection and  -->
 <!-- cognitive load measurement using GSR sensors -->
 <!-- - Insights gained from previous studies and their relevance to the current project -->
@@ -103,22 +103,22 @@ classify students' emotional states and cognitive load levels in real-time.
    - Once trained, the model was capable of classifying new GSR data samples.
    - Real-time classification enables educators to promptly identify students in need of support and intervention.
 
-## Machine Learning Model Development
+<!-- ## Machine Learning Model Development -->
 <!-- - Description of the machine learning model design and development process -->
 <!-- - Explanation of the feature selection and engineering techniques used -->
 <!-- - Training methodology and hyperparameter tuning strategies employed -->
 
-## Model Evaluation
+<!-- ## Model Evaluation -->
 <!-- - Evaluation metrics used to assess the performance of the emotion and 
 cognitive load detection model -->
 <!-- - Results of the model evaluation and analysis of its effectiveness -->
 
-## Discussion
+<!-- ## Discussion -->
 <!-- - Interpretation of the findings from the model evaluation -->
 <!-- - Implications of the results for educational practice and student well-being -->
 <!-- - Limitations of the study and areas for future research -->
 
-## Conclusion
+<!-- ## Conclusion -->
 <!-- - Summary of the key findings and contributions of the project -->
 <!-- - Importance of the developed system for enhancing student support and educational outcomes -->
 

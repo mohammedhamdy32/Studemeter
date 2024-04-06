@@ -28,17 +28,21 @@ int main(void)
 
 	APP_Init();
 
+	/* Connect to WiFi */
+	APP_voidOpenWifiErrorLed();
+	APP_u8InitWifiConnection();
+	APP_voidCloseWifiErrorLed();
 
 	while(1)
 	{
 
-		if( NUMBER_OF_SAMPLES_TO_SEND_DATA == queue_size() ) /* Send data */
+		if( NUMBER_OF_SAMPLES_TO_SEND_DATA <= queue_size() ) /* Send data */
 		{
 			QUEUE_DATATYPE data[NUMBER_OF_SAMPLES_TO_SEND_DATA];
 			for(u16 i=0 ; i<NUMBER_OF_SAMPLES_TO_SEND_DATA ; i++ )
 			    dequeue( data+i );
 			/*Send data*/
-			APP_send_data( data , NUMBER_OF_SAMPLES_TO_SEND_DATA );
+			APP_voidSendData( data , NUMBER_OF_SAMPLES_TO_SEND_DATA );
 
 		}
 

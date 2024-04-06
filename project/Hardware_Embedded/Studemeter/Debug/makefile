@@ -11,10 +11,10 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/queue/subdir.mk
--include Src/USART/subdir.mk
 -include Src/SYSTICK/subdir.mk
 -include Src/RCC/subdir.mk
 -include Src/GPIO/subdir.mk
+-include Src/ESP_AT_Commands/subdir.mk
 -include Src/APP/subdir.mk
 -include Src/ADC/subdir.mk
 -include Src/subdir.mk

@@ -49,7 +49,7 @@ typedef struct{
 
 /*** Function Prototypes ***/
 
-void   USART_voidInit( USART_config *a_config );
+void USART_voidInit( USART_config *a_config );
 void USART_sendWord( USART_NUMBER usart_num, u16 a_data );
 void USART_receiveWord( USART_NUMBER usart_num , u16 *a_data );
 void USART_sendString( USART_NUMBER usart_num , const u8 *a_data );

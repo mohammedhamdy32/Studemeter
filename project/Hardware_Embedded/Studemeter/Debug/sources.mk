@@ -24,10 +24,10 @@ C_DEPS :=
 SUBDIRS := \
 Src/ADC \
 Src/APP \
+Src/ESP_AT_Commands \
 Src/GPIO \
 Src/RCC \
 Src/SYSTICK \
-Src/USART \
 Src \
 Src/queue \
 Startup \

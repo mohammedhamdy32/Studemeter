@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" modified="2024-05-17T11:47:29.955Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="GN6UyRneny-gKosl_Al4" version="24.3.1" type="device">
+  <diagram name="Page-1" id="9zM1ay9mYw8PqPHQyrjp">
+    <mxGraphModel dx="1050" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-1" value="Filtering" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="200" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="Tok8Ir3JnF3nQQ_PZ6XO-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="230" as="sourcePoint" />
+            <mxPoint x="90" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-5" value="GSR signal" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Tok8Ir3JnF3nQQ_PZ6XO-4">
+          <mxGeometry x="-0.2733" y="9" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-6" value="continous pr" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="200" width="97" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Tok8Ir3JnF3nQQ_PZ6XO-1" target="Tok8Ir3JnF3nQQ_PZ6XO-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="330" as="sourcePoint" />
+            <mxPoint x="360" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-8" value="Feature extraction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="200" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Tok8Ir3JnF3nQQ_PZ6XO-6" target="Tok8Ir3JnF3nQQ_PZ6XO-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="330" as="sourcePoint" />
+            <mxPoint x="360" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-10" value="machine learning&lt;div&gt;model&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="200" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Tok8Ir3JnF3nQQ_PZ6XO-8" target="Tok8Ir3JnF3nQQ_PZ6XO-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="330" as="sourcePoint" />
+            <mxPoint x="410" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-12" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Tok8Ir3JnF3nQQ_PZ6XO-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="320" as="sourcePoint" />
+            <mxPoint x="830" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Tok8Ir3JnF3nQQ_PZ6XO-13" value="Student status" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Tok8Ir3JnF3nQQ_PZ6XO-12">
+          <mxGeometry x="-0.0629" y="8" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,13 @@
+$primary: #0077cc;
+$secondary: #ff7f00;
+
+@import "bootstrap/scss/bootstrap.scss";
+
+body {
+  padding: 1.5rem;
+}
+
+.my-scrollable {
+  max-height: 400px;
+  overflow-y: auto;
+}

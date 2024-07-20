@@ -1,32 +1,24 @@
-// components/ScatterPlot.tsx
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartData, ChartOptions } from 'chart.js';
 
 const ScatterPlot: React.FC = () => {
-  const data: ChartData<'scatter'> = {
+  const [chartData, setChartData] = useState<ChartData<'scatter'>>({
     datasets: [
       {
         label: 'Focused',
-        data: [
-{ x: 1 , y: 0 },{ x: 2 , y: 0 },{ x: 5 , y: 0 },{ x: 6 , y: 0 },{ x: 7 , y: 0 },{ x: 9 , y: 0 },{ x: 13 , y: 0 },{ x: 14 , y: 0 },{ x: 15 , y: 0 },{ x: 16 , y: 0 },{ x: 18 , y: 0 },{ x: 20 , y: 0 },{ x: 21 , y: 0 },{ x: 24 , y: 0 },{ x: 26 , y: 0 },{ x: 28 , y: 0 },{ x: 29 , y: 0 },{ x: 32 , y: 0 },{ x: 33 , y: 0 },{ x: 34 , y: 0 },{ x: 37 , y: 0 },{ x: 38 , y: 0 },{ x: 39 , y: 0 },{ x: 40 , y: 0 },{ x: 42 , y: 0 },{ x: 48 , y: 0 },{ x: 49 , y: 0 },{ x: 51 , y: 0 },{ x: 52 , y: 0 },{ x: 54 , y: 0 },{ x: 58 , y: 0 },{ x: 59 , y: 0 },{ x: 61 , y: 0 },{ x: 63 , y: 0 },{ x: 65 , y: 0 },{ x: 69 , y: 0 },{ x: 72 , y: 0 },{ x: 73 , y: 0 },{ x: 75 , y: 0 },{ x: 76 , y: 0 },{ x: 77 , y: 0 },{ x: 78 , y: 0 },{ x: 79 , y: 0 },{ x: 81 , y: 0 },{ x: 82 , y: 0 },{ x: 83 , y: 0 },{ x: 85 , y: 0 },{ x: 87 , y: 0 },{ x: 89 , y: 0 },
-        ],
+        data: [],
         backgroundColor: '#0077cc',
       },
       {
         label: 'Distracted',
-        data: [
-            { x: 0 , y: 1 },{ x: 3 , y: 1 },{ x: 4 , y: 1 },{ x: 8 , y: 1 },{ x: 10 , y: 1 },{ x: 11 , y: 1 },{ x: 12 , y: 1 },{ x: 17 , y: 1 },{ x: 19 , y: 1 },{ x: 22 , y: 1 },{ x: 23 , y: 1 },{ x: 25 , y: 1 },{ x: 27 , y: 1 },{ x: 30 , y: 1 },{ x: 31 , y: 1 },{ x: 35 , y: 1 },{ x: 36 , y: 1 },{ x: 41 , y: 1 },{ x: 43 , y: 1 },{ x: 44 , y: 1 },{ x: 45 , y: 1 },{ x: 46 , y: 1 },{ x: 47 , y: 1 },{ x: 50 , y: 1 },{ x: 53 , y: 1 },{ x: 55 , y: 1 },{ x: 56 , y: 1 },{ x: 57 , y: 1 },{ x: 60 , y: 1 },{ x: 62 , y: 1 },{ x: 64 , y: 1 },{ x: 66 , y: 1 },{ x: 67 , y: 1 },{ x: 68 , y: 1 },{ x: 70 , y: 1 },{ x: 71 , y: 1 },{ x: 74 , y: 1 },{ x: 80 , y: 1 },{ x: 84 , y: 1 },{ x: 86 , y: 1 },{ x: 88 , y: 1 },
-        ],
+        data: [],
         backgroundColor: '#ff7f00',
       },
-    {
+      {
         label: 'Indication',
-        data: [
-            { x: 0 , y:  0.45  },{ x: 1 , y:  0.5  },{ x: 2 , y:  0.55  },{ x: 3 , y:  0.5  },{ x: 4 , y:  0.45  },{ x: 5 , y:  0.5  },{ x: 6 , y:  0.55  },{ x: 7 , y:  0.6000000000000001  },{ x: 8 , y:  0.55  },{ x: 9 , y:  0.6000000000000001  },{ x: 10 , y:  0.55  },{ x: 11 , y:  0.5  },{ x: 12 , y:  0.45  },{ x: 13 , y:  0.5  },{ x: 14 , y:  0.55  },{ x: 15 , y:  0.6000000000000001  },{ x: 16 , y:  0.6500000000000001  },{ x: 17 , y:  0.6000000000000001  },{ x: 18 , y:  0.6500000000000001  },{ x: 19 , y:  0.6000000000000001  },{ x: 20 , y:  0.6500000000000001  },{ x: 21 , y:  0.7000000000000002  },{ x: 22 , y:  0.6500000000000001  },{ x: 23 , y:  0.6000000000000001  },{ x: 24 , y:  0.6500000000000001  },{ x: 25 , y:  0.6000000000000001  },{ x: 26 , y:  0.6500000000000001  },{ x: 27 , y:  0.6000000000000001  },{ x: 28 , y:  0.6500000000000001  },{ x: 29 , y:  0.7000000000000002  },{ x: 30 , y:  0.6500000000000001  },{ x: 31 , y:  0.6000000000000001  },{ x: 32 , y:  0.6500000000000001  },{ x: 33 , y:  0.7000000000000002  },{ x: 34 , y:  0.7500000000000002  },{ x: 35 , y:  0.7000000000000002  },{ x: 36 , y:  0.6500000000000001  },{ x: 37 , y:  0.7000000000000002  },{ x: 38 , y:  0.7500000000000002  },{ x: 39 , y:  0.8000000000000003  },{ x: 40 , y:  0.8500000000000003  },{ x: 41 , y:  0.8000000000000003  },{ x: 42 , y:  0.8500000000000003  },{ x: 43 , y:  0.8000000000000003  },{ x: 44 , y:  0.7500000000000002  },{ x: 45 , y:  0.7000000000000002  },{ x: 46 , y:  0.6500000000000001  },{ x: 47 , y:  0.6000000000000001  },{ x: 48 , y:  0.6500000000000001  },{ x: 49 , y:  0.7000000000000002  },{ x: 50 , y:  0.6500000000000001  },{ x: 51 , y:  0.7000000000000002  },{ x: 52 , y:  0.7500000000000002  },{ x: 53 , y:  0.7000000000000002  },{ x: 54 , y:  0.7500000000000002  },{ x: 55 , y:  0.7000000000000002  },{ x: 56 , y:  0.6500000000000001  },{ x: 57 , y:  0.6000000000000001  },{ x: 58 , y:  0.6500000000000001  },{ x: 59 , y:  0.7000000000000002  },{ x: 60 , y:  0.6500000000000001  },{ x: 61 , y:  0.7000000000000002  },{ x: 62 , y:  0.6500000000000001  },{ x: 63 , y:  0.7000000000000002  },{ x: 64 , y:  0.6500000000000001  },{ x: 65 , y:  0.7000000000000002  },{ x: 66 , y:  0.6500000000000001  },{ x: 67 , y:  0.6000000000000001  },{ x: 68 , y:  0.55  },{ x: 69 , y:  0.6000000000000001  },{ x: 70 , y:  0.55  },{ x: 71 , y:  0.5  },{ x: 72 , y:  0.55  },{ x: 73 , y:  0.6000000000000001  },{ x: 74 , y:  0.55  },{ x: 75 , y:  0.6000000000000001  },{ x: 76 , y:  0.6500000000000001  },{ x: 77 , y:  0.7000000000000002  },{ x: 78 , y:  0.7500000000000002  },{ x: 79 , y:  0.8000000000000003  },{ x: 80 , y:  0.7500000000000002  },{ x: 81 , y:  0.8000000000000003  },{ x: 82 , y:  0.8500000000000003  },{ x: 83 , y:  0.9000000000000004  },{ x: 84 , y:  0.8500000000000003  },{ x: 85 , y:  0.9000000000000004  },{ x: 86 , y:  0.8500000000000003  },{ x: 87 , y:  0.9000000000000004  },{ x: 88 , y:  0.8500000000000003  },{ x: 89 , y:  0.9000000000000004  }
-        ],
+        data: [],
         backgroundColor: '#808080',
         showLine: true,
         fill: false,
@@ -34,7 +26,62 @@ const ScatterPlot: React.FC = () => {
         pointStyle: false,
       },
     ],
-  };
+  });
+
+  const [focusStatus, setFocusStatus] = useState<string>('Currently Distracted');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/data.txt');
+        const text = await response.text();
+        const values = text.split(',').map(Number);
+
+        // Calculate average value
+        const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+
+        // Update focus status based on average
+        if (average > 0.5) {
+          setFocusStatus('Currently Focused');
+        } else {
+          setFocusStatus('Currently Distracted');
+        }
+
+        // Generate the data points for focused, distracted, and indication
+        const focusedData = values.map((value, index) => ({ x: index, y: value === 1 ? 1 : NaN }));
+        const distractedData = values.map((value, index) => ({ x: index, y: value === 0 ? 0 : NaN }));
+        const indicationData = values.map((value, index) => ({ x: index, y: value === 1 ? (index % 10) / 10 : NaN }));
+
+        setChartData({
+          datasets: [
+            {
+              label: 'Focused',
+              data: focusedData.filter(point => !isNaN(point.y)),
+              backgroundColor: '#0077cc',
+            },
+            {
+              label: 'Distracted',
+              data: distractedData.filter(point => !isNaN(point.y)),
+              backgroundColor: '#ff7f00',
+            },
+            {
+              label: 'Indication',
+              data: indicationData.filter(point => !isNaN(point.y)),
+              backgroundColor: '#808080',
+              showLine: true,
+              fill: false,
+              borderWidth: 2,
+              pointStyle: false,
+            },
+          ],
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const options: ChartOptions<'scatter'> = {
     scales: {
@@ -47,7 +94,14 @@ const ScatterPlot: React.FC = () => {
 
   return (
     <div className="row justify-content-center p-3">
-      <Scatter data={data} options={options} />
+      <div className="text-center mb-3">
+        <h2>Karim Mohamed</h2>
+        <p>Mostly Focused from 8:00 AM till now</p>
+        <p style={{ color: focusStatus === 'Currently Focused' ? '#0077cc' : '#ff7f00' }}>
+          {focusStatus}
+        </p>
+      </div>
+      <Scatter data={chartData} options={options} />
     </div>
   );
 };

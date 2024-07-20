@@ -4,18 +4,13 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-
-function handleViewHistoryClick(studentId: number) {
-  console.log(studentId)
-}
-
 interface StudentParams {
-  id: number,
-  name: string, 
-  isDistracted: boolean,
+  id: number;
+  name: string;
+  isDistracted: boolean;
 }
 
-function StudentDiv({id, name, isDistracted}: StudentParams) {
+function StudentDiv({ id, name, isDistracted }: StudentParams) {
   return (
     <div className="row mx-1 my-2">
       <div className="col-12">
@@ -26,10 +21,10 @@ function StudentDiv({id, name, isDistracted}: StudentParams) {
           <div className="col-auto fs-6 text-uppercase fg-primary">
             {isDistracted ?              
               <span className="text-secondary font-weight-bold">Distracted</span>
-            : <span className="text-primary">normal</span>}
+            : <span className="text-primary">Normal</span>}
           </div>
           <Link href="/history" className="btn btn-sm col-auto rounded-pill fs-6 text-uppercase opacity-50">
-            view history
+            View History
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16">
               <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
             </svg>
@@ -41,41 +36,14 @@ function StudentDiv({id, name, isDistracted}: StudentParams) {
 }
 
 export default function Home() {
+  const router = useRouter();
   const classroomName = "Classroom 1/2";
   const starts = "8:00 AM";
   const ends = "9:30 AM";
   const students = [
-    {
-      id: 1,
-      name: "Karim Mohamed",
-      isDistracted: true,
-    },
-    {
-      id: 2,
-      name: "Ziad Mahmoud",
-      isDistracted: true,
-    },
-    {
-      id: 3,
-      name: "Ahmed Alaa",
-      isDistracted: false,
-    },
-    {
-      id: 4,
-      name: "Majid Sameh",
-      isDistracted: false,
-    },
-    {
-      id: 5,
-      name: "Foad Osman",
-      isDistracted: false,
-    },
-    {
-      id: 6,
-      name: "Ahmed Alaa",
-      isDistracted: false,
-    },
-  ]
+    { id: 1, name: "Karim Mohamed", isDistracted: true },
+    
+  ];
 
   return (
     <>
@@ -89,50 +57,34 @@ export default function Home() {
         <Header text="back" href="/teacher" />
 
         <div className="row justify-content-center">
-
-          <div className="col-12 col-lg-6 justify-content-center p-0 border rounded-4">
-            <div className="bg-light rounded-4">
-              <div className="row justify-content-center">
-                <div className="col-12 fs-4 text-center my-2">
-                  {classroomName}
+          <div className="col-12 col-lg-6 p-0 border rounded-4 bg-light">
+            <div className="p-3">
+              <div className="fs-4 text-center mb-2">
+                {classroomName}
+              </div>
+              <div className="mb-3 text-center">
+                <div className="fs-6">30 Total present students</div>
+                <div className="text-secondary">4 Distracted students</div>
+              </div>
+              <div className="my-scrollable">
+                {students.map(student => (
+                  <StudentDiv key={student.id} id={student.id} name={student.name} isDistracted={student.isDistracted} />
+                ))}
+              </div>
+              <div className="row text-center mt-3">
+                <div className="col-6">
+                  <div className="text-uppercase text-muted fs-5">Starts</div>
+                  <div className="fs-3">{starts}</div>
                 </div>
-                <div className="div-12 mb-2">
-                  <div className="row text-center">
-                    <div className="col-12">30 Total present students</div>
-                    <div className="col-12 text-secondary">4 Distracted students</div>
-                  </div>
+                <div className="col-6">
+                  <div className="text-uppercase text-muted fs-5">Ends</div>
+                  <div className="fs-3">{ends}</div>
                 </div>
-              </div>
-            </div>
-            <div className="col my-scrollable my-1 rounded-4">
-              {students.map(student => <StudentDiv id={student.id} name={student.name} isDistracted={student.isDistracted}/>)}
-            </div>
-          </div>
-
-
-
-          <div className="w-100 mb-4"></div>
-          <div className="col-12 col-lg-6 row justify-content-center">
-            <div className="row justify-content-center text-center col-6">
-              <div className="col-12 text-uppercase text-muted fs-5">
-                Starts
-              </div>
-              <div className="col-12 text-muted fs-3">
-                {starts}
-              </div>
-            </div>
-            <div className="row justify-content-center text-center col-6">
-              <div className="col-12 text-uppercase text-muted fs-5">
-                ends
-              </div>
-              <div className="col-12 text-muted fs-3">
-                {ends}
               </div>
             </div>
           </div>
-
         </div>
-      </Container >
+      </Container>
     </>
   );
 }

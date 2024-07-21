@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartData, ChartOptions } from 'chart.js';
+import { computeWindowedAverage } from './computeWindowedAverage';
 
 type DataPoint = {
   x: number;
@@ -57,7 +58,11 @@ const ScatterPlot: React.FC = () => {
 
         const focusedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? 1 : NaN }));
         const distractedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 0 ? 0 : NaN }));
-        const indicationData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? (index % 10) / 10 : NaN }));
+        let rawIndicationData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? 1 : 0 }));
+        const indicationData = computeWindowedAverage(rawIndicationData, rawIndicationData.length / 4);
+
+        console.log(focusedData);
+        console.log(distractedData);
 
         setChartData({
           datasets: [

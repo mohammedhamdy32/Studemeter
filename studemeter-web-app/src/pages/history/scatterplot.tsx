@@ -3,22 +3,27 @@ import { Scatter } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartData, ChartOptions } from 'chart.js';
 
+type DataPoint = {
+  x: number;
+  y: number;
+};
+
 const ScatterPlot: React.FC = () => {
   const [chartData, setChartData] = useState<ChartData<'scatter'>>({
     datasets: [
       {
         label: 'Focused',
-        data: [],
+        data: [] as DataPoint[],
         backgroundColor: '#0077cc',
       },
       {
         label: 'Distracted',
-        data: [],
+        data: [] as DataPoint[],
         backgroundColor: '#ff7f00',
       },
       {
         label: 'Indication',
-        data: [],
+        data: [] as DataPoint[],
         backgroundColor: '#808080',
         showLine: true,
         fill: false,
@@ -34,23 +39,25 @@ const ScatterPlot: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('/data.txt');
-        const text = await response.text();
-        const values = text.split(',').map(Number);
+        const text: string = await response.text();
+        const cleanedText = text.trim();
+        const cleanedTextWithoutBrackets = cleanedText.replace(/^\[|\]$/g, '');
+        const values = cleanedTextWithoutBrackets.split(',').map(Number);
 
-        // Calculate average value
         const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+        setFocusStatus(average > 0.5 ? 'Currently Focused' : 'Currently Distracted');
 
-        // Update focus status based on average
-        if (average > 0.5) {
-          setFocusStatus('Currently Focused');
-        } else {
-          setFocusStatus('Currently Distracted');
+        // Group data into five-second intervals and calculate the average for each interval
+        const groupedValues: number[] = [];
+        for (let i = 0; i < values.length; i += 5) {
+          const group = values.slice(i, i + 5);
+          const groupAverage = group.reduce((sum, value) => sum + value, 0) / group.length;
+          groupedValues.push(groupAverage);
         }
 
-        // Generate the data points for focused, distracted, and indication
-        const focusedData = values.map((value, index) => ({ x: index, y: value === 1 ? 1 : NaN }));
-        const distractedData = values.map((value, index) => ({ x: index, y: value === 0 ? 0 : NaN }));
-        const indicationData = values.map((value, index) => ({ x: index, y: value === 1 ? (index % 10) / 10 : NaN }));
+        const focusedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? 1 : NaN }));
+        const distractedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 0 ? 0 : NaN }));
+        const indicationData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? (index % 10) / 10 : NaN }));
 
         setChartData({
           datasets: [
@@ -88,20 +95,30 @@ const ScatterPlot: React.FC = () => {
       x: {
         type: 'linear',
         position: 'bottom',
+        title: {
+          display: true,
+          text: 'Time (seconds)',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Focus Level', // Optional y-axis title
+        },
       },
     },
   };
 
   return (
     <div className="row justify-content-center p-3">
-      <div className="text-center mb-3">
-        <h2>Karim Mohamed</h2>
-        <p>Mostly Focused from 8:00 AM till now</p>
+      <div className="col-12 text-center mb-3">
         <p style={{ color: focusStatus === 'Currently Focused' ? '#0077cc' : '#ff7f00' }}>
           {focusStatus}
         </p>
       </div>
-      <Scatter data={chartData} options={options} />
+      <div className="col-12">
+        <Scatter data={chartData} options={options} />
+      </div>
     </div>
   );
 };

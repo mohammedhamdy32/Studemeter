@@ -1,50 +1,10 @@
 import Head from "next/head";
 import Container from "react-bootstrap/Container";
 import Header from "@/components/Header";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import ScatterPlot from "./scatterplot";
 
-function handleViewHistoryClick(studentId: number) {
-  console.log(studentId);
-}
-
-interface StudentParams {
-  id: number;
-  name: string;
-  isDistracted: boolean;
-}
-
-function StudentDiv({ id, name, isDistracted }: StudentParams) {
-  return (
-    <div className="row mx-1 my-2">
-      <div className="col-12">
-        <div className={"row justify-content-between p-2 rounded-4 bg-opacity-10 " + (isDistracted ? "bg-secondary" : "bg-primary")}>
-          <div className="col-12 fs-4">
-            {name}
-          </div>
-          <div className="col-auto fs-6 text-uppercase fg-primary">
-            {isDistracted ?              
-              <span className="text-secondary font-weight-bold">Distracted</span>
-            : <span className="text-primary">Normal</span>}
-          </div>
-          <Link href="/history" className="btn btn-sm col-auto rounded-pill fs-6 text-uppercase opacity-50">
-            View History
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16">
-              <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
-  const studentName = "Karim Mohamed";
-  const startDatetime = "8:00 AM";
-  const endDatetime = "now";
-
   const router = useRouter();
   const handleButtonClick = () => {
     router.push('/students');
@@ -63,18 +23,15 @@ export default function Home() {
 
         <div className="row justify-content-center">
           <div className="col-12 col-lg-6 justify-content-center p-0 border rounded-4">
-
+            
             <div className="bg-light rounded-4">
               <div className="row justify-content-center">
                 <div className="col-12 fs-4 text-center my-2">
-                  {studentName}
+                  Karim Mohamed
                 </div>
                 <div className="col-12 mb-2 text-center">
                   <div>
-                    <span className="text-primary text-capitalize">Mostly focused</span> from {startDatetime} till {endDatetime}
-                  </div>
-                  <div className="text-secondary text-capitalize">
-                    Currently distracted
+                    <span className="text-primary text-capitalize">Mostly focused</span> from 8:00 AM till now
                   </div>
                 </div>
               </div>
@@ -90,34 +47,12 @@ export default function Home() {
                   <div className="text-uppercase text-center mt-2 mb-2 fs-6 opacity-50">
                     Time period to display in
                   </div>
-
-                  <div>
-                    <div className="row justify-content-center py-2 px-5">
-                      <div className="form-check col-6 col-md-5 col-lg-4">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="opt1" checked />
-                        <label className="form-check-label text-capitalize" htmlFor="opt1">
-                          During class
-                        </label>
-                      </div>
-                      <div className="form-check col-6 col-md-5 col-lg-4">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="opt2" />
-                        <label className="form-check-label text-capitalize" htmlFor="opt2">
-                          Today
-                        </label>
-                      </div>
-                      <div className="w-100"></div>
-                      <div className="form-check col-6 col-md-5 col-lg-4">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="opt3" />
-                        <label className="form-check-label text-capitalize" htmlFor="opt3">
-                          This week
-                        </label>
-                      </div>
-                      <div className="form-check col-6 col-md-5 col-lg-4">
-                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="opt4" />
-                        <label className="form-check-label text-capitalize" htmlFor="opt4">
-                          This month
-                        </label>
-                      </div>
+                  <div className="row justify-content-center py-2 px-5">
+                    <div className="form-check col-12 text-center">
+                      <input className="form-check-input" type="radio" name="timePeriod" id="duringClass" checked />
+                      <label className="form-check-label text-capitalize" htmlFor="duringClass">
+                        During class
+                      </label>
                     </div>
                   </div>
                 </div>

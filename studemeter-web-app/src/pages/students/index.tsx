@@ -64,7 +64,7 @@ export default function Home() {
               </div>
               <div className="mb-3 text-center">
                 <div className="fs-6">30 Total present students</div>
-                <div className="text-secondary">4 Distracted students</div>
+                <div className="text-secondary">1 monitored students</div>
               </div>
               <div className="my-scrollable">
                 {students.map(student => (

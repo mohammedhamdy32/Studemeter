@@ -15,13 +15,8 @@ function StudentDiv({ id, name, isDistracted }: StudentParams) {
     <div className="row mx-1 my-2">
       <div className="col-12">
         <div className={"row justify-content-between p-2 rounded-4 bg-opacity-10 " + (isDistracted ? "bg-secondary" : "bg-primary")}>
-          <div className="col-12 fs-4">
+          <div className="col-auto fs-4">
             {name}
-          </div>
-          <div className="col-auto fs-6 text-uppercase fg-primary">
-            {isDistracted ?              
-              <span className="text-secondary font-weight-bold">Distracted</span>
-            : <span className="text-primary">Normal</span>}
           </div>
           <Link href="/history" className="btn btn-sm col-auto rounded-pill fs-6 text-uppercase opacity-50">
             View History
@@ -63,8 +58,7 @@ export default function Home() {
                 {classroomName}
               </div>
               <div className="mb-3 text-center">
-                <div className="fs-6">30 Total present students</div>
-                <div className="text-secondary">1 monitored students</div>
+                <div className="fs-6">1 Total present students</div>
               </div>
               <div className="my-scrollable">
                 {students.map(student => (

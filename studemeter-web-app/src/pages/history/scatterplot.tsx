@@ -36,7 +36,7 @@ const ScatterPlot: React.FC = () => {
 
   const [focusStatus, setFocusStatus] = useState<string>('Currently Distracted');
   const [options, setOptions] = useState<ChartOptions<'scatter'>>();
-  const SAMPLES_PER_SECOND = 1000 / 12.8; // sample every 12.8ms
+  const SAMPLES_PER_SECOND = 1 / 12.8; // sample every 12.8ms
 
   useEffect(() => {
     const fetchData = async () => {

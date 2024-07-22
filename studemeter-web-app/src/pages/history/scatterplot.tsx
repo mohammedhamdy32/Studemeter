@@ -3,6 +3,7 @@ import { Scatter } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ChartData, ChartOptions } from 'chart.js';
 import { computeWindowedAverage } from './computeWindowedAverage';
+import { Span } from 'next/dist/trace';
 
 type DataPoint = {
   x: number;
@@ -34,9 +35,22 @@ const ScatterPlot: React.FC = () => {
     ],
   });
 
-  const [focusStatus, setFocusStatus] = useState<string>('Currently Distracted');
+  const [spanStatusAverage, setSpanStatusAverage] = useState(<span>Unknown Status</span>);
+  const [spanStatusRecently, setSpanStatusRecently] = useState(<span>Unknown Status</span>);
   const [options, setOptions] = useState<ChartOptions<'scatter'>>();
   const SAMPLES_PER_SECOND = 1 / 12.8; // sample every 12.8ms
+
+  const [refreshCount, setRefreshCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRefreshCount(prevCount => prevCount + 1);
+    }, 300); // Every 300ms redraw
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array ensures this runs only once
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +62,18 @@ const ScatterPlot: React.FC = () => {
         const values = cleanedTextWithoutBrackets.split(',').map(Number);
 
         const average = values.reduce((sum, value) => sum + value, 0) / values.length;
-        setFocusStatus(average > 0.5 ? 'Currently Focused' : 'Currently Distracted');
+        if (average < 0.5) {
+          setSpanStatusAverage(<span className='text-primary'>Mostly focused</span>);
+        } else if (average > 0.5) {
+          setSpanStatusAverage(<span className='text-secondary'>Mostly distracted</span>);
+        } else {
+          setSpanStatusAverage(<span>Between distracted and focused</span>);
+        }
+        if (values.at(-1) === 1) {
+          setSpanStatusRecently(<span className='text-primary'>Recently focused</span>);
+        } else if (values.at(-1) === 0) {
+          setSpanStatusRecently(<span className='text-secondary'>Recently distracted</span>);
+        }
 
         const focusedData: DataPoint[] = values.map((value, index) => ({ x: index / SAMPLES_PER_SECOND, y: value === 1 ? 100 : NaN }));
         const distractedData: DataPoint[] = values.map((value, index) => ({ x: index / SAMPLES_PER_SECOND, y: value === 0 ? 0 : NaN }));
@@ -105,14 +130,15 @@ const ScatterPlot: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [refreshCount]);
 
   return (
     <div className="row justify-content-center p-3">
+      <div className="col-12 text-center">
+        {spanStatusAverage}
+      </div>
       <div className="col-12 text-center mb-3">
-        <p style={{ color: focusStatus === 'Currently Focused' ? '#0077cc' : '#ff7f00' }}>
-          {focusStatus}
-        </p>
+        {spanStatusRecently}
       </div>
       <div className="col-12">
         <Scatter data={chartData} options={options} />

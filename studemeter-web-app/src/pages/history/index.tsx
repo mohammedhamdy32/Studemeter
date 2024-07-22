@@ -29,11 +29,6 @@ export default function Home() {
                 <div className="col-12 fs-4 text-center my-2">
                   Karim Mohamed
                 </div>
-                <div className="col-12 mb-2 text-center">
-                  <div>
-                    <span className="text-primary text-capitalize">Mostly focused</span> from 8:00 AM till now
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -45,20 +40,13 @@ export default function Home() {
               <div className="row justify-content-center">
                 <div className="col-12 mb-2">
                   <div className="text-uppercase text-center mt-2 mb-2 fs-6 opacity-50">
-                    Time period to display in
-                  </div>
-                  <div className="row justify-content-center py-2 px-5">
-                    <div className="form-check col-12 text-center">
-                      <input className="form-check-input" type="radio" name="timePeriod" id="duringClass" checked />
-                      <label className="form-check-label text-capitalize" htmlFor="duringClass">
-                        During class
-                      </label>
-                    </div>
+                    during class
                   </div>
                 </div>
               </div>
             </div>
 
+          </div>
             <div className="col-12 mt-4">
               <div className="row justify-content-center">
                 <div className="col-auto">
@@ -71,8 +59,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-          </div>
         </div>
       </Container>
     </>

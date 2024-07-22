@@ -35,6 +35,8 @@ const ScatterPlot: React.FC = () => {
   });
 
   const [focusStatus, setFocusStatus] = useState<string>('Currently Distracted');
+  const [options, setOptions] = useState<ChartOptions<'scatter'>>();
+  const SAMPLES_PER_SECOND = 1000 / 12.8; // sample every 12.8ms
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,21 +50,10 @@ const ScatterPlot: React.FC = () => {
         const average = values.reduce((sum, value) => sum + value, 0) / values.length;
         setFocusStatus(average > 0.5 ? 'Currently Focused' : 'Currently Distracted');
 
-        // Group data into five-second intervals and calculate the average for each interval
-        const groupedValues: number[] = [];
-        for (let i = 0; i < values.length; i += 5) {
-          const group = values.slice(i, i + 5);
-          const groupAverage = group.reduce((sum, value) => sum + value, 0) / group.length;
-          groupedValues.push(groupAverage);
-        }
-
-        const focusedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? 1 : NaN }));
-        const distractedData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 0 ? 0 : NaN }));
-        let rawIndicationData: DataPoint[] = groupedValues.map((value, index) => ({ x: index * 5, y: value === 1 ? 1 : 0 }));
-        const indicationData = computeWindowedAverage(rawIndicationData, rawIndicationData.length / 4);
-
-        console.log(focusedData);
-        console.log(distractedData);
+        const focusedData: DataPoint[] = values.map((value, index) => ({ x: index / SAMPLES_PER_SECOND, y: value === 1 ? 100 : NaN }));
+        const distractedData: DataPoint[] = values.map((value, index) => ({ x: index / SAMPLES_PER_SECOND, y: value === 0 ? 0 : NaN }));
+        let rawIndicationData: DataPoint[] = values.map((value, index) => ({ x: index / SAMPLES_PER_SECOND, y: value === 1 ? 100 : value === 0 ? 0 : NaN }));
+        const indicationData = computeWindowedAverage(rawIndicationData, Math.max(1, Math.ceil(rawIndicationData.length / 2)));
 
         setChartData({
           datasets: [
@@ -82,11 +73,32 @@ const ScatterPlot: React.FC = () => {
               backgroundColor: '#808080',
               showLine: true,
               fill: false,
-              borderWidth: 2,
+              borderWidth: 3,
               pointStyle: false,
             },
           ],
         });
+
+      setOptions({
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            min: 0,
+            max: values.length / SAMPLES_PER_SECOND,
+            title: {
+              display: true,
+              text: 'Time (seconds)',
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Focus Percentage (%)', // Optional y-axis title
+            },
+          },
+        },
+      });
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -94,25 +106,6 @@ const ScatterPlot: React.FC = () => {
 
     fetchData();
   }, []);
-
-  const options: ChartOptions<'scatter'> = {
-    scales: {
-      x: {
-        type: 'linear',
-        position: 'bottom',
-        title: {
-          display: true,
-          text: 'Time (seconds)',
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Focus Level', // Optional y-axis title
-        },
-      },
-    },
-  };
 
   return (
     <div className="row justify-content-center p-3">
